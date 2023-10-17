@@ -32,11 +32,11 @@ public class Ex1244 {
     }
     private static void swapNumber(int start, int depth){
         if(depth == cnt){
-            String answer = "";
+            StringBuilder answer = new StringBuilder();
             for(int i=0; i<num.length; i++){
-                answer +=num[i];
+                answer.append(num[i]);
             }
-            max = Math.max(max, Integer.parseInt(answer));
+            max = Math.max(max, Integer.parseInt(answer.toString()));
             return;
         }
 
