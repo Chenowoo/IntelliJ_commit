@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Ex1244 {
+    private static int cnt, max;
+    private static String[] num;
 
     public static void main(String args[]) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,33 +18,42 @@ public class Ex1244 {
 
             StringTokenizer st = new StringTokenizer(br.readLine());
 
-            String num = st.nextToken();
-            int cnt = Integer.parseInt(st.nextToken());
-            boolean[] visited = new boolean[num.length()];
-            int[] arr = new int[2];
+            num = st.nextToken().split("");
+            cnt = Integer.parseInt(st.nextToken());
+            max = Integer.MIN_VALUE;
 
-            swapNumber(num, arr, visited, 0, 0, 2);
+            if(num.length < cnt){
+                cnt = num.length;
+            }
+            swapNumber(0, 0);
+            sb.append(max + "\n");
         }
+        System.out.println(sb);
     }
-
-    private static void swapNumber(String num, int[] arr, boolean[] visited, int start, int depth, int r){
-        if(depth == r){
-            swap(num, arr[0], arr[1]);
+    private static void swapNumber(int start, int depth){
+        if(depth == cnt){
+            String answer = "";
+            for(int i=0; i<num.length; i++){
+                answer +=num[i];
+            }
+            max = Math.max(max, Integer.parseInt(answer));
             return;
         }
 
-        for(int i=start; i<num.length(); i++){
-            if(!visited[i]){
-                visited[i] = true;
-                arr[depth] = i;
-                swapNumber(num, arr, visited, start+1, depth+1, r);
-                visited[i] = false;
+        for(int i=start; i<num.length; i++){
+            for(int j=i+1; j<num.length; j++){
+                String temp = num[i];
+                num[i] = num[j];
+                num[j] = temp;
+
+                swapNumber(i, depth+1);
+
+                temp = num[i];
+                num[i] = num[j];
+                num[j] = temp;
             }
         }
     }
 
-    private static void swap(String num, int x, int y){
-        char c = num.charAt(x);
 
-    }
 }
