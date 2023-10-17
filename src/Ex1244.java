@@ -33,8 +33,8 @@ public class Ex1244 {
     private static void swapNumber(int start, int depth){
         if(depth == cnt){
             StringBuilder answer = new StringBuilder();
-            for(int i=0; i<num.length; i++){
-                answer.append(num[i]);
+            for (String s : num) {
+                answer.append(s);
             }
             max = Math.max(max, Integer.parseInt(answer.toString()));
             return;
