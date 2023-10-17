@@ -14,7 +14,7 @@ public class Ex1244 {
         StringBuilder sb = new StringBuilder();
 
         for(int i=1; i<=t; i++){
-            sb.append("#" + i+ " ");
+            sb.append("#").append(i).append(" ");
 
             StringTokenizer st = new StringTokenizer(br.readLine());
 
@@ -26,7 +26,7 @@ public class Ex1244 {
                 cnt = num.length;
             }
             swapNumber(0, 0);
-            sb.append(max + "\n");
+            sb.append(max).append("\n");
         }
         System.out.println(sb);
     }
