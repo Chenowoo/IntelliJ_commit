@@ -7,7 +7,7 @@ public class Ex1244 {
     private static int cnt, max;
     private static String[] num;
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int t = Integer.parseInt(br.readLine());
